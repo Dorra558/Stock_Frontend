@@ -34,9 +34,11 @@ function Navigation() {
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
        
-        <div className='navbar container '>
+        <div className='navbar  d-flex justify-content-between'>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
+          </Link>
+          <Link to='#' className='menu-bars'>
             <FiIcons.FiLogIn  />
           </Link>
         </div>
@@ -49,8 +51,10 @@ function Navigation() {
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
-            <img src="" alt="" />
-            <h1>Elementry Stock</h1> 
+            <div className="text-center pt-4">
+            <img src="imgs/logo.jpg" className="imgStock" alt="" />
+                        <p className="text-white">Elementry Stock</p> 
+            </div>
             {SidebarData.map((item, index) => {
               return (
                 <>             

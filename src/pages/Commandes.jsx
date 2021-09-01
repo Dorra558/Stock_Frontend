@@ -1,10 +1,17 @@
 import React from 'react'
+import {Container, Row, Col} from 'react-bootstrap'
+import FormCommand from '../components/Forms/FormCommand'
+
 
 function Commandes() {
+
     return (
-        <div>
-            <h1>Nos commandes</h1>
-        </div>
+        <>
+            <Container className="py-5">
+                <h5 >Commandes</h5>
+                 <FormCommand/>
+        </Container>
+        </>
     )
 }
 
