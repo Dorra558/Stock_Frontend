@@ -13,11 +13,9 @@ function FormModal() {
 
 
     const initialCommandState = {
-        nomCompletManager: "",
-        email: "",
-        AdrDepot: "",
-        tel : "",
+        manager : "",
         nomProduit :"",
+        categorie : "",
         quantité : "",
         dateCommand : ""
      };
@@ -31,15 +29,15 @@ function FormModal() {
             ...command,
             [name]: value
         });
-        console.log("add new menu", command)
+        console.log("add new command", command)
     };
 
 
-
+  
     const passCommand = () => {
-        const { nomCompletManager, email, AdrDepot,  tel, nomProduit, quantité, dateCommand } = command;
+        const { manager, nomProduit,categorie, quantité, dateCommand } = command;
 
-      dispatch(newCommand(nomCompletManager, email, AdrDepot,  tel, nomProduit, quantité, dateCommand))
+      dispatch(newCommand( manager, nomProduit,categorie, quantité, dateCommand))
             //   setSubmitted(true);
             // .then(data => {
             //     setMenu({
@@ -81,23 +79,8 @@ function FormModal() {
                                         </Col>
                                         <Row>
                                             <Col md={3}>
-                                                <Form.Group className="mb-3" >  
-                                                <Form.Control type="text" placeholder="Nom Complet" id="nomCompletManager" value={command.nomCompletManager} onChange={handleInputChange} name="nomCompletManager" />
-                                                </Form.Group>
-                                            </Col>
-                                            <Col md={3}>
-                                                <Form.Group className="mb-3">
-                                                <Form.Control type="tel" placeholder="Téléphone" id="tel" value={command.tel} onChange={handleInputChange} name="tel" />
-                                            </Form.Group>
-                                            </Col>
-                                            <Col md={3}>
-                                                <Form.Group className="mb-3">
-                                                <Form.Control type="email" placeholder="Email" id="email" value={command.email} onChange={handleInputChange} name="email" />
-                                            </Form.Group>
-                                            </Col>
-                                            <Col md={3}>
-                                                <Form.Group className="mb-3">
-                                                <Form.Control type="text" placeholder="Adresse de dépot" id="AdrDepot" value={command.AdrDepot} onChange={handleInputChange} name="AdrDepot" />
+                                            <Form.Group className="mb-3">
+                                                <Form.Control type="text" placeholder="Ajouter ID manager" id="manager" value={command.manager} onChange={handleInputChange} name="manager" />
                                             </Form.Group>
                                             </Col>
                                         </Row>
@@ -114,12 +97,12 @@ function FormModal() {
                                             </Col>
                                             <Col md={3}>
                                                 <div class="form-group floating-label">
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
+                                                    <select class="form-control" id="categorie" value={command.categorie} onChange={handleInputChange} name="categorie">
+                                                        <option>Boisson</option>
+                                                        <option>Biscuit</option>
+                                                        <option>Jus</option>
+                                                        <option>Eau</option>
+                                                        <option>Cake</option>
                                                     </select>
                                                 </div>
                                             </Col>
@@ -133,7 +116,7 @@ function FormModal() {
                                                 <Form.Control type="date" placeholder="date de commande" id="dateCommand" value={command.dateCommand} onChange={handleInputChange} name="dateCommand" />
                                             </Form.Group>
                                             </Col>
-                                            <Col md={6}>
+                                            {/* <Col md={6}>
                                                 <div class="form-group floating-label">
                                                     <textarea
                                                     id="textarea-with-placeholder"
@@ -142,16 +125,16 @@ function FormModal() {
                                                     placeholder="Ecrire un commantaire ici"
                                                     ></textarea>
                                                 </div>
-                                            </Col>
+                                            </Col> */}
                                         </Row>
                                         
 
                                     </Form> 
                         <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button variant="secondary">
                            Annuler
                         </Button>
-                        <Button  onClick={()=>passCommand()} className="btn btn-success" >
+                        <Button  onClick={()=>passCommand()} className="btn btn-primary" >
                             Approuver
                         </Button>
                         </Modal.Footer>

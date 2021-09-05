@@ -18,14 +18,14 @@ export const getCommand = () => async(dispatch) => {
     }
     // add new command
 
-export const newCommand = (nomProduit, categorie, quantité, manager, dateCommand) => async(dispatch) => {
+export const newCommand = (manager, nomProduit, categorie, quantité) => async(dispatch) => {
     try {
-        const res = await postnewCommands(nomProduit, categorie, quantité, manager, dateCommand);
+        const res = await postnewCommands(manager, nomProduit, categorie, quantité);
         dispatch({
             type: ADD_COMMAND,
             payload: res.data
         })
-        console.log("payload")
+        console.log("Add commanddddd")
     } catch (error) {
         console.log(error);
     }

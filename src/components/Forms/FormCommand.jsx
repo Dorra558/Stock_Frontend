@@ -4,6 +4,7 @@ import { getCommand } from '../../Redux/actions/commandAction'
 import { Row, Col, Container, Table} from 'react-bootstrap'
 import * as AiIcons from 'react-icons/ai';
 import FormModal from './FormModal';
+import Moment from 'react-moment'
 
 
 
@@ -20,7 +21,7 @@ export default function FormCommand() {
         useEffect(() => {
             dispatch(getCommand());
         },[dispatch]);
-        console.log(datas, "get commands");
+        console.log(datas, "geeeeeeeeeeet commands");
 
     return (
         <div>
@@ -43,8 +44,9 @@ export default function FormCommand() {
                 <Row>
                  
                     <Col>
-                    {datas.map((el,key) => (
-                        <Table striped bordered hover key={key}>
+                
+                   
+                        <Table striped bordered hover >
                         <thead>
                             <tr>
                             <th>ID_P</th>
@@ -54,17 +56,24 @@ export default function FormCommand() {
                             <th>Etat de commande</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        {datas.map((el,key) => (
+                        <tbody key={key}>
                             <tr>
                             <td>{el._id}</td>
                             <td>{el.nomProduit}</td>
                             <td>{el.quantité}</td>
-                            <td>{el.dateCommand}</td>
-                            <td>acceptée</td>
+                            <td>
+                                <Moment format="YYYY/MM/DD HH:mm">{el.dateCommand}</Moment>
+                            </td>
+                            
                             </tr>
+                            {console.log("ssaaaarrraaa",el)}
                         </tbody>
+                        ))}
+                        
                         </Table>
-                     ))}
+                     
+                   
                     </Col>
                 </Row>
 

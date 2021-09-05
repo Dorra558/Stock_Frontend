@@ -23,6 +23,20 @@ function updateCommands(id) {
     return Api.put(`command/${id}`);
 }
 
+//login Managers
 
-export { postnewCommands, getAllCommands, updateCommands, deleteCommands }
-export default { postnewCommands, getAllCommands, updateCommands, deleteCommands }
+function loginManager(email, password) {
+    return Api.post("manager/loginManagers", { email, password });
+}
+
+//current manager
+function getCurrentManager() {
+    return Api.get("manager/currentManager");
+}
+
+
+
+
+
+export { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager }
+export default { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager }
