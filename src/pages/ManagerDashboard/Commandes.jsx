@@ -1,6 +1,6 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
-import FormCommand from '../components/Forms/FormCommand'
+import FormCommand from '../../components/Forms/FormCommand'
 
 
 function Commandes() {

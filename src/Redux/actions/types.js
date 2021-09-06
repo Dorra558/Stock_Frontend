@@ -1,9 +1,16 @@
-//Login types
+//Login and register types
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const FAILED_LOGIN = "FAILED_LOGIN";
 export const CURRENT_MANAGER = "CURRENT_MANAGER"
 export const AUTHENTIFICATION_ERROR = "AUTHENTIFICATION_ERROR"
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const FAILED_REGISTER = " FAILED_REGISTER";
 
+// log out from the dashboard
+export const LOGOUT = "LOGOUT"
+
+// Manager
+export const GET_MANAGER = "GET_MANAGER"
 
 
 //Command types

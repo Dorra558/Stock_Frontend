@@ -3,8 +3,9 @@ import './App.css';
 import React from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import LoginForm from './components/LoginForm/LoginForm';
-import Home from './pages/Home';
+import LoginForm from './components/AuthForm/LoginForm';
+import Home from './pages/ManagerDashboard/Home';
+import HomeAdmin from './pages/AdminDashboard/HomeAdmin'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Switch>
           <Route exact path='/login' exact component={LoginForm} />
            <Route exact path='/dashboard' component={Home} />
+           <Route exact path='/admin' component={HomeAdmin} />
         </Switch>
       </BrowserRouter>
     </div>

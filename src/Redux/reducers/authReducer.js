@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, FAILED_LOGIN, CURRENT_MANAGER } from '../actions/types'
+import { LOGIN_SUCCESS, FAILED_LOGIN, CURRENT_MANAGER, REGISTER_SUCCESS, AUTHENTIFICATION_ERROR, FAILED_REGISTER, LOGOUT } from '../actions/types'
 
 
 // login reducer
@@ -13,6 +13,9 @@ export const authReducer = (state = initialState, action) => {
     const { type, payload } = action
     switch (type) {
         //sign in manager
+
+
+        case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
             localStorage.setItem("token", payload.token);
             return {
@@ -23,7 +26,10 @@ export const authReducer = (state = initialState, action) => {
             }
             console.log(state)
 
+        case AUTHENTIFICATION_ERROR:
+        case FAILED_REGISTER:
         case FAILED_LOGIN:
+        case LOGOUT:
             localStorage.removeItem("token");
             return {
                 ...state,

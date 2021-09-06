@@ -3,22 +3,13 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as FiIcons from 'react-icons/fi'
 import { Link } from 'react-router-dom';
-import { SidebarData } from '../SideBar/SideBar';
+import { SideBarAdmin } from '../SideBarAdmin/SideBarAdmin';
 import { useLocation } from "react-router-dom";
 import './Navigation.css';
-import { useDispatch, useSelector} from 'react-redux'
 import { IconContext } from 'react-icons';
-import {logoutUser} from '../../Redux/actions/authAction'
+import {Container} from 'react-bootstrap'
 
-function Navigation() {
-
-  // const user = useSelector((state) => state.authReducer.user) 
-  // console.log("home user",user)
-  const dispatch = useDispatch()
-  const logout =()=>{ 
-      dispatch (logoutUser())
-  }
-
+function NavigationAdmin() {
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => sidebar ? setSidebar (false)  : setSidebar(true);
 
@@ -48,7 +39,7 @@ function Navigation() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <Link to='#' className='menu-bars'>
-            <FiIcons.FiLogIn onClick={logout()}  />
+            <FiIcons.FiLogIn  />
           </Link>
         </div>
 
@@ -64,7 +55,7 @@ function Navigation() {
             <img src="imgs/logo.jpg" className="imgStock" alt="" />
                         <p className="text-white">Elementry Stock</p> 
             </div>
-            {SidebarData.map((item, index) => {
+            {SideBarAdmin.map((item, index) => {
               return (
                 <>             
                   <li key={index} className={ item.upgrade ? "activated" : activeRoute(item.path)}>
@@ -86,4 +77,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default NavigationAdmin;

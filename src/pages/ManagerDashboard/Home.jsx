@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Dashbord from './Dashbord';
 import Commandes from './Commandes';
 import EtatStock from './EtatStock';
-import Navigation from '../components/NavBar/Navigation';
+import Navigation from '../../components/NavBar/Navigation';
 
 function Home() {
     return (
@@ -12,9 +12,9 @@ function Home() {
       <BrowserRouter>
       <Navigation/>
       <Switch>
-          <Route exact path='/dashboard'  component={Dashbord} />
-          <Route exact path='/commandes' component={Commandes} />
-          <Route exact path='/etat de stock' component={EtatStock} />
+          <Route exact path='/dashboard/dashboard'  component={Dashbord} />
+          <Route exact path='/dashboard/commandes' component={Commandes} />
+          <Route exact path='/dashboard/etat de stock' component={EtatStock} />
         </Switch>
       </BrowserRouter> 
         </div>

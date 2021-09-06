@@ -63,11 +63,12 @@ console.log(`hhhhhhhhh`, user)
    
            
             if (user) {
-              if (isAuthenticated && user.role === "manager") return <Redirect to="/dashboard" />;
+              if (isAuthenticated && user.role == "manager") return <Redirect to="/dashboard" />;
             }
             if (user) {
-              if (isAuthenticated && user.role === "admin") return <Redirect to="/dashboard" />;
+              if (isAuthenticated && user.role === "admin") return <Redirect to="/admin" />;
             }
+
 
     return (
         <div>

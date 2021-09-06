@@ -2,6 +2,7 @@ import axios from "axios";
 
 const Api = axios.create({ baseURL: "http://localhost:4000/app/" });
 
+//*****************************API COMMANDS********************************************************* */
 //add command
 function postnewCommands(nomProduit, categorie, quantité, manager, dateCommand) {
     return Api.post("command/addCommands", { nomProduit, categorie, quantité, manager, dateCommand });
@@ -23,6 +24,16 @@ function updateCommands(id) {
     return Api.put(`command/${id}`);
 }
 
+
+//********************************LOGIN AND REGISTER OF MANAGERS************************************************************* */
+
+
+// Register Managers by the Admin
+
+function RegisterManager(nomCompletManager, AdrDepot, tel, email, password) {
+    return Api.post("manager/registerManagers", { nomCompletManager, AdrDepot, tel, email, password });
+}
+
 //login Managers
 
 function loginManager(email, password) {
@@ -35,8 +46,10 @@ function getCurrentManager() {
 }
 
 
+//*********************************API MANAGERS****************************************************************** */
+function getAllManagers() {
+    return Api.get("manager/getManagers");
+}
 
-
-
-export { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager }
-export default { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager }
+export { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager, getAllManagers, RegisterManager }
+export default { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager, getAllManagers, RegisterManager }

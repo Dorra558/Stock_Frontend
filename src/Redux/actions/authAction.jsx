@@ -1,8 +1,34 @@
 
-import {LOGIN_SUCCESS, FAILED_LOGIN, CURRENT_MANAGER,  AUTHENTIFICATION_ERROR} from './types'
+import {LOGIN_SUCCESS, FAILED_LOGIN, CURRENT_MANAGER,  AUTHENTIFICATION_ERROR, REGISTER_SUCCESS, FAILED_REGISTER, LOGOUT} from './types'
 import axios from 'axios'
-import {loginManager, getCurrentManager} from '../services/api'
+import {loginManager, getCurrentManager, RegisterManager} from '../services/api'
 import  setAuthToken from '../services/AuthToken'
+
+export const register = (
+  nomCompletManager,
+  email,
+  password,
+  AdrDepot,
+  tel,
+  role
+) => async dispatch => {
+  try {
+    const res = await axios.post("http://localhost:4000/app/manager/registerManagers", {nomCompletManager, AdrDepot, tel, email, password, role:"manager" })
+    dispatch({
+      type: REGISTER_SUCCESS,
+      payload: res.data
+    });
+    dispatch(loadManager());
+    console.log("register")
+  } catch (err) {
+    const error = err.response.data.msg;
+     dispatch({
+      type: FAILED_REGISTER
+    });
+  }
+};
+
+
 
 
 export const loginManagers = (email, password) => async dispatch => {
@@ -42,3 +68,7 @@ export const loginManagers = (email, password) => async dispatch => {
     }
   }; 
   
+  export const logoutUser = () => dispatch => {
+    dispatch({ type: LOGOUT });
+    console.log('logout')
+  };
