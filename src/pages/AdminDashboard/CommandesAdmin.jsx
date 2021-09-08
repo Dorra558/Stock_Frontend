@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import {Row, Col, Table} from 'react-bootstrap'
+import { Container, Row, Col, Table} from 'react-bootstrap'
 import * as AiIcons from 'react-icons/ai';
 import FormModal from '../../components/Forms/FormModal';
 import Moment from 'react-moment'
@@ -30,48 +30,52 @@ function CommandesAdmin() {
                     </button>
                     </div>
                 </Col>
-                <Col md={4}>
-                  <FormModal/>
-                </Col>
+
             </Row>
 
 
 
-                <Row>
-                 
-                    <Col>
-                
-                   
-                        <Table striped bordered hover >
-                        <thead>
-                            <tr>
-                            <th>ID_P</th>
-                            <th>Nom Produit</th>
-                            <th>Quantité</th>
-                            <th>Date de commande</th>
-                            <th>Etat de commande</th>
-                            </tr>
-                        </thead>
-                        {datas.map((el,key) => (
-                        <tbody key={key}>
-                            <tr>
-                            <td>{el._id}</td>
-                            <td>{el.nomProduit}</td>
-                            <td>{el.quantité}</td>
-                            <td>
-                                <Moment format="YYYY/MM/DD HH:mm">{el.dateCommand}</Moment>
-                            </td>
-                            
-                            </tr>
-                            {console.log("ssaaaarrraaa",el)}
-                        </tbody>
-                        ))}
+               <Container>
+                    <Row>
                         
-                        </Table>
-                     
-                   
-                    </Col>
-                </Row>
+                        <Col>
+                    
+                        
+                            <Table striped bordered hover >
+                            <thead>
+                                <tr>
+                                <th>ID_P</th>
+                                <th>Nom Produit</th>
+                                <th>Quantité</th>
+                                <th>Date de commande</th>
+                                <th>Catégorie</th>
+                                <th>Adresse de dépot</th>
+                                <th>Etat de commande</th>
+                                </tr>
+                            </thead>
+                            {datas.map((el,key) => (
+                            <tbody key={key}>
+                                <tr>
+                                <td></td>
+                                <td>{el.nomProduit}</td>
+                                <td>{el.quantité}</td>
+                                <td>
+                                    <Moment format="YYYY/MM/DD HH:mm">{el.dateCommand}</Moment>
+                                </td>
+                
+                                <td>{el.categorie}</td>
+                                <td></td>
+                                </tr>
+                                {console.log("ssaaaarrraaa",el)}
+                            </tbody>
+                            ))}
+                            
+                            </Table>
+                        
+                        
+                        </Col>
+                    </Row>
+               </Container>
 
           
         </div>

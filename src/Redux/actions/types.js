@@ -11,6 +11,12 @@ export const LOGOUT = "LOGOUT"
 
 // Manager
 export const GET_MANAGER = "GET_MANAGER"
+export const DELETE_MANAGER = "DELETE_MANAGER"
+export const UPDATE_MANAGER = "UPDATE_MANAGER"
+
+//popup to delete a manager
+export const POPUP_DELETE = "POPUP_DELETE"
+export const CLOSE_DELETE_CONFIRM = "CLOSE_DELETE_CONFIRM"
 
 
 //Command types

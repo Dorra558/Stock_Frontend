@@ -1,6 +1,7 @@
 
 import './App.css';
 import React from 'react'
+import 'react-toastify/dist/ReactToastify.css'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import LoginForm from './components/AuthForm/LoginForm';

@@ -51,5 +51,14 @@ function getAllManagers() {
     return Api.get("manager/getManagers");
 }
 
-export { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager, getAllManagers, RegisterManager }
-export default { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager, getAllManagers, RegisterManager }
+function deleteManagers(id) {
+    return Api.delete(`manager/${id}`)
+}
+
+function updateManagers(id) {
+    return Api.put(`manager/${id}`)
+}
+
+
+export { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager, getAllManagers, RegisterManager, deleteManagers, updateManagers }
+export default { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager, getAllManagers, RegisterManager, deleteManagers, updateManagers }

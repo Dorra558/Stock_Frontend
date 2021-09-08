@@ -6,6 +6,13 @@ import { BiPlusMedical } from "react-icons/bi";
 
 
 function FormModal() {
+
+
+    // const removeDuplicates = (myArr, prop) => {
+    //     return myArr.filter((obj, pos, arr) => {
+    //       return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos;
+    //     });
+    //   };
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -17,7 +24,6 @@ function FormModal() {
         nomProduit :"",
         categorie : "",
         quantité : "",
-        dateCommand : ""
      };
      
      const [command, setCommand] = useState(initialCommandState);
@@ -35,9 +41,9 @@ function FormModal() {
 
   
     const passCommand = () => {
-        const { manager, nomProduit,categorie, quantité, dateCommand } = command;
+        const {nomProduit,categorie, quantité} = command;
 
-      dispatch(newCommand( manager, nomProduit,categorie, quantité, dateCommand))
+      dispatch(newCommand(nomProduit,categorie, quantité))
             //   setSubmitted(true);
             // .then(data => {
             //     setMenu({
@@ -74,16 +80,6 @@ function FormModal() {
                         </Modal.Body>
                             
                                     <Form className="formulaire">
-                                        <Col>
-                                        <Form.Label><h4>Coordonnées du gestionnaire</h4> </Form.Label>
-                                        </Col>
-                                        <Row>
-                                            <Col md={3}>
-                                            <Form.Group className="mb-3">
-                                                <Form.Control type="text" placeholder="Ajouter ID manager" id="manager" value={command.manager} onChange={handleInputChange} name="manager" />
-                                            </Form.Group>
-                                            </Col>
-                                        </Row>
 
                                         <Col>
                                         <Form.Label><h4>Informations de Produit</h4> </Form.Label>
@@ -103,6 +99,7 @@ function FormModal() {
                                                         <option>Jus</option>
                                                         <option>Eau</option>
                                                         <option>Cake</option>
+                                                        <option>Lait</option>
                                                     </select>
                                                 </div>
                                             </Col>
@@ -111,11 +108,7 @@ function FormModal() {
                                                 <Form.Control type="number" placeholder="Quantité" id="quantité" value={command.quantité} onChange={handleInputChange} name="quantité" />
                                             </Form.Group>
                                             </Col>
-                                            <Col md={3}>
-                                                <Form.Group className="mb-3">
-                                                <Form.Control type="date" placeholder="date de commande" id="dateCommand" value={command.dateCommand} onChange={handleInputChange} name="dateCommand" />
-                                            </Form.Group>
-                                            </Col>
+
                                             {/* <Col md={6}>
                                                 <div class="form-group floating-label">
                                                     <textarea
@@ -131,10 +124,8 @@ function FormModal() {
 
                                     </Form> 
                         <Modal.Footer>
-                        <Button variant="secondary">
-                           Annuler
-                        </Button>
-                        <Button  onClick={()=>passCommand()} className="btn btn-primary" >
+
+                        <Button  onClick={()=>{passCommand();handleClose()}} className="btn btn-primary" >
                             Approuver
                         </Button>
                         </Modal.Footer>

@@ -23,8 +23,8 @@ function RegisterForm() {
         const isAuthenticated = useSelector((state) => state.authReducer.isAuthenticated)
         console.log("authh",isAuthenticated)
     const initialRegisterState = {
-        nom : "",
-        adr : "",
+        nomCompletManager : "",
+        AdrDepot : "",
         tel : "",
         email : "",
         password :"",
@@ -46,7 +46,7 @@ function RegisterForm() {
 //-------Name validate
 const validateName = () => {
   
-    if (!signup.nom) {
+    if (!signup.nomCompletManager) {
       validate.nomState = "bad";
     } else {
       validate.nomState = "ok";
@@ -78,26 +78,29 @@ const validateName = () => {
   };
 
     // ****************on submit function************************************
-    const submitForm=(event)=>{
-        event.preventDefault()
+    const submitForm=()=>{
+      
         validateName();
         validatePassword();
         validatePhone();
-        dispatch (register(signup.nom,signup.email,signup.password,signup.adr,signup.tel, signup.role))
+        dispatch (register(signup.nomCompletManager,signup.email,signup.password,signup.AdrDepot,signup.tel, signup.role))
       }
 
 
-    //   if (user) {
-    //     if (isAuthenticated && user.role === "manager") return <Redirect to="/dashboard" />;
-    //   }
-
+      // if (user) {
+      //   if (isAuthenticated && user.role === "manager") return <Redirect to="/dashboard" />;
+      // }
 
 
 
     return (
+    <> 
+       
         <div>
              
             <Container>
+      
+
                     <Button variant="success" onClick={handleShow}>   
                     <BiPlusMedical/> Ajouter un gestionnaire
                     </Button>
@@ -108,7 +111,7 @@ const validateName = () => {
                             </Modal.Header>
                             
                             <Modal.Body>
-                            { isAuthenticated  ? <Redirect to="/admin" /> : 
+                            {/* { isAuthenticated  ? <Redirect to="/admin" /> :  */}
                                 <Form>
                                     <Row  className="py-3">
                                     <Col md={4}>
@@ -118,13 +121,13 @@ const validateName = () => {
                                         </Col>
                                         <Col md={4}>
                                             <Form.Group className="mb-3">
-                                                <Form.Control id="nom" name="nom" value={signup.nom}  onChange={handleInputChange} type="text" placeholder="Enter le nom d'un gestionnaire" />
+                                                <Form.Control id="nomCompletManager" name="nomCompletManager" value={signup.nomCompletManager}  onChange={handleInputChange} type="text" placeholder="Enter le nom d'un gestionnaire" />
                                             </Form.Group>
                                         </Col>
 
                                         <Col md={4}>
                                             <Form.Group className="mb-3">
-                                                <Form.Control  id="adr" name="adr" value={signup.adr}  onChange={handleInputChange} type="text" placeholder="Ecrire l'adresse de dépot" />
+                                                <Form.Control  id="AdrDepot" name="AdrDepot" value={signup.AdrDepot}  onChange={handleInputChange} type="adr" placeholder="Ecrire l'adresse de dépot" />
                                             </Form.Group>
                                         </Col>
                                     </Row>
@@ -146,20 +149,21 @@ const validateName = () => {
                                         </Col>
                                     </Row>
                                 </Form>
-}
+{/* } */}
                             </Modal.Body>
 
                             <Modal.Footer>
-                            <Button  onClick={submitForm} variant="success">
+                            <Button  onClick={()=>{submitForm();handleClose()}} variant="success">
                                 Ajouter
                             </Button>
                             </Modal.Footer>
-                        </Modal>
-                    
+                        </Modal>  
+                 
             </Container>
-
         </div>
+        </>
     )
+
 }
 
 export default RegisterForm

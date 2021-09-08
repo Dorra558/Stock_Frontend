@@ -1,6 +1,8 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
-import FormCommand from '../../components/Forms/FormCommand'
+import FormModal from '../../components/Forms/FormModal'
+// import FormCommand from '../../components/Forms/FormCommand'
+import MesPub from '../../components/Publication/MesPub'
 
 
 function Commandes() {
@@ -9,7 +11,8 @@ function Commandes() {
         <>
             <Container className="py-5">
                 <h5 >Commandes</h5>
-                 <FormCommand/>
+                <FormModal/>
+                <MesPub/>
         </Container>
         </>
     )

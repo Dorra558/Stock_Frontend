@@ -14,6 +14,7 @@ function Home() {
       <Switch>
           <Route exact path='/dashboard/dashboard'  component={Dashbord} />
           <Route exact path='/dashboard/commandes' component={Commandes} />
+          {/* <Route path="/dashboard/getCommandById/:id"><ProductUser/></Route> */}
           <Route exact path='/dashboard/etat de stock' component={EtatStock} />
         </Switch>
       </BrowserRouter> 

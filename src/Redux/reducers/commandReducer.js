@@ -15,16 +15,16 @@ export const commandReducer = (state = initialState, action) => {
                 loading: false
             }
             console.log(state)
-            break;
 
             //add command
         case ADD_COMMAND:
             state = {
                 ...state,
                 datas: [...state.datas, payload],
+                loading: false
 
             }
-            console.log(state)
+            console.log("loading of command state", state)
             break;
 
             //delete command

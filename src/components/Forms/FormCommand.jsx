@@ -40,7 +40,6 @@ export default function FormCommand() {
             </Row>
 
 
-
                 <Row>
                  
                     <Col>
@@ -62,6 +61,7 @@ export default function FormCommand() {
                             <td>{el._id}</td>
                             <td>{el.nomProduit}</td>
                             <td>{el.quantité}</td>
+                        
                             <td>
                                 <Moment format="YYYY/MM/DD HH:mm">{el.dateCommand}</Moment>
                             </td>

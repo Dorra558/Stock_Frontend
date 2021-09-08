@@ -8,16 +8,16 @@ import { useLocation } from "react-router-dom";
 import './Navigation.css';
 import { useDispatch, useSelector} from 'react-redux'
 import { IconContext } from 'react-icons';
-import {logoutUser} from '../../Redux/actions/authAction'
+// import {logoutUser} from '../../Redux/actions/authAction'
 
 function Navigation() {
 
   // const user = useSelector((state) => state.authReducer.user) 
   // console.log("home user",user)
   const dispatch = useDispatch()
-  const logout =()=>{ 
-      dispatch (logoutUser())
-  }
+  // const logout =()=>{ 
+  //     dispatch (logoutUser())
+  // }
 
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => sidebar ? setSidebar (false)  : setSidebar(true);
@@ -48,7 +48,8 @@ function Navigation() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <Link to='#' className='menu-bars'>
-            <FiIcons.FiLogIn onClick={logout()}  />
+            <FiIcons.FiLogIn  /> 
+            {/* onClick={logout()}  */}
           </Link>
         </div>
 
