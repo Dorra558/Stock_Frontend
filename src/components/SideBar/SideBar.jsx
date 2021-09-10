@@ -2,6 +2,7 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import { useDispatch, useSelector } from 'react-redux'
 
 export const SidebarData = [
   {
@@ -34,8 +35,8 @@ export const SidebarData = [
 
   },
   {
-    title: 'Paramétres',
-    path: '/dashboard/settings',
+    title: 'LogOut',
+    path: '/login',
     icon: <AiIcons.AiFillSetting />,
     className: 'nav-text'
 

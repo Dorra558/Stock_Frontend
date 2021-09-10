@@ -2,7 +2,7 @@
 import './App.css';
 import React from 'react'
 import 'react-toastify/dist/ReactToastify.css'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import LoginForm from './components/AuthForm/LoginForm';
 import Home from './pages/ManagerDashboard/Home';
@@ -12,14 +12,13 @@ function App() {
   return (
     <div className="App">
 
-      <BrowserRouter>
-    
+      <Router>
       <Switch>
           <Route exact path='/login' exact component={LoginForm} />
            <Route exact path='/dashboard' component={Home} />
            <Route exact path='/admin' component={HomeAdmin} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   )
 }

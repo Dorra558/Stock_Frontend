@@ -43,7 +43,7 @@ function FormUpdateManager({el,id}) {
 
 
     const notif =()=>{
-        toast.success('Coordonnées modifiées avec succés!')
+        toast.info('Coordonnées modifiées avec succés!')
     }
 
     return (
@@ -65,7 +65,7 @@ function FormUpdateManager({el,id}) {
 
                                             <Col md={4}>
                                                 <Form.Group className="mb-3">
-                                                    <Form.Control id="nomCompletManager" name="nomCompletManage" defaultValue={el.nomCompletManager}  onChange={handleInputChange} type="text" placeholder="Enter le nom d'un gestionnaire" />
+                                                    <Form.Control id="nomCompletManager" name="nomCompletManager" defaultValue={el.nomCompletManager}  onChange={handleInputChange} type="text" />
                                                 </Form.Group>
                                             </Col>
 
@@ -75,6 +75,7 @@ function FormUpdateManager({el,id}) {
                                                 </Form.Group>
                                             </Col>
                                         </Row>
+                                        
                                         <Row>
                                             <Col md={4}>
                                                 <Form.Group className="mb-3">

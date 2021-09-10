@@ -1,4 +1,4 @@
-import { GET_COMMAND, ADD_COMMAND, PUT_COMMAND, DELETE_COMMAND } from "../actions/types"
+import { GET_COMMAND, ADD_COMMAND, PUT_COMMAND, DELETE_COMMAND, GET_ORDER } from "../actions/types"
 const initialState = {
     datas: [],
     loading: true
@@ -14,7 +14,16 @@ export const commandReducer = (state = initialState, action) => {
                 datas: payload,
                 loading: false
             }
+            break;
             console.log(state)
+        case GET_ORDER:
+            state = {
+                ...state,
+                datas: payload,
+                loading: false
+            }
+            break;
+
 
             //add command
         case ADD_COMMAND:
@@ -53,6 +62,8 @@ export const commandReducer = (state = initialState, action) => {
                     return command;
                 }
             });
+
+
 
 
     }

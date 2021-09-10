@@ -68,7 +68,7 @@ export const loginManagers = (email, password) => async dispatch => {
     }
   }; 
   
-  // export const logoutUser = () => dispatch => {
-  //   dispatch({ type: LOGOUT });
-  //   console.log('logout')
-  // };
+  export const logoutUser = () => dispatch => {
+    dispatch({ type: LOGOUT });
+    console.log('logout')
+  };

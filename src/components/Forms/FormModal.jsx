@@ -1,11 +1,12 @@
 import React,{useState} from 'react'
 import {Modal, Button, Form, Row, Col, Container} from 'react-bootstrap'
 import { newCommand } from '../../Redux/actions/commandAction';
-import { useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import { BiPlusMedical } from "react-icons/bi";
+import jwt_decode from "jwt-decode";
 
 
-function FormModal() {
+function FormModal({currrentId}) {
 
 
     // const removeDuplicates = (myArr, prop) => {
@@ -18,9 +19,14 @@ function FormModal() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const x =localStorage.getItem("token")
+    var id = jwt_decode(x)._id
+
+    // const nomGest = useSelector((state) => state.authReducer.user)
 
     const initialCommandState = {
-        manager : "",
+        manager : id ,
+        // nomManger:`${nomGest.nomManger}`,
         nomProduit :"",
         categorie : "",
         quantité : "",
@@ -39,11 +45,12 @@ function FormModal() {
     };
 
 
-  
     const passCommand = () => {
-        const {nomProduit,categorie, quantité} = command;
+ 
+        const {manager, nomProduit,categorie, quantité} = command;
+        console.log("gijfndsuign",command);
 
-      dispatch(newCommand(nomProduit,categorie, quantité))
+      dispatch(newCommand(manager, nomProduit,categorie, quantité))
             //   setSubmitted(true);
             // .then(data => {
             //     setMenu({

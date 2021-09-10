@@ -4,6 +4,8 @@ import { loginManagers } from '../../Redux/actions/authAction';
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
+
+
 function LoginForm() {
 
     const initialLoginState = {
@@ -68,6 +70,7 @@ console.log(`hhhhhhhhh`, user)
             if (user) {
               if (isAuthenticated && user.role === "admin") return <Redirect to="/admin" />;
             }
+            else <Redirect to="/signIn"/>
 
 
     return (

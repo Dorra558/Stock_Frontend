@@ -27,9 +27,12 @@ function ManagerStock() {
     }
 
     const notify =()=>{
-        toast.error('Gestionnaire supprimé!')
+        toast.success('Gestionnaire supprimé!')
     }
 
+
+
+    
     return (
         <div>
 
@@ -70,16 +73,16 @@ function ManagerStock() {
                         {gestion.map((el,key) => (
                         <tbody key={key}>
                             <tr>
-                            <td>{el.nomCompletManager}</td>
-                            <td>{el.AdrDepot}</td>
-                            <td>{el.tel}</td>
-                            <td>
-                            {el.email}
-                            </td>
-                            <td className='d-flex justify-content-around'>
-                            <AiIcons.AiOutlineDelete onClick={() => {deleteItem(el._id);notify()}} />
-                             <FormUpdateManager id={el._id}  el={el}/>
-                            </td>
+                                <td>{el.nomCompletManager}</td>
+                                <td>{el.AdrDepot}</td>
+                                <td>{el.tel}</td>
+                                <td>
+                                {el.email}
+                                </td>
+                                <td className='d-flex justify-content-around'>
+                                    <AiIcons.AiOutlineDelete onClick={() => {deleteItem(el._id);notify()}} />
+                                    <FormUpdateManager id={el._id}  el={el}/>
+                                </td>
                             </tr>
                             {console.log("ssaaaarrraaa",el)}
                         </tbody>

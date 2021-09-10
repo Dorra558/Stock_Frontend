@@ -47,9 +47,9 @@ export const deleteManager = (id) => async(dispatch) => {
 //     payload: id
 // })
 
-export const closeConfirmMsg = (id) => ({
-    type: CLOSE_DELETE_CONFIRM,
-})
+// export const closeConfirmMsg = (id) => ({
+//     type: CLOSE_DELETE_CONFIRM,
+// })
 
 // Update manager
 

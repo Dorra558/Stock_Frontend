@@ -1,24 +1,38 @@
-import React,{useEffect} from 'react'
-import { Container, Row, Col, Table} from 'react-bootstrap'
+import React,{useEffect, useState} from 'react'
+import { Container, Row, Col, Table, Button} from 'react-bootstrap'
 import * as AiIcons from 'react-icons/ai';
-import FormModal from '../../components/Forms/FormModal';
 import Moment from 'react-moment'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCommand } from '../../Redux/actions/commandAction'
+import { getCommand, deleteCommand } from '../../Redux/actions/commandAction'
+import UpdateStatut from '../../components/Forms/UpdateStatut';
+import {updateCommand} from '../../Redux/actions/commandAction'
 
 
 function CommandesAdmin() {
 
 
-    
+    // const [statuts,setStatuts] = useState('')
+
     const dispatch = useDispatch()
     const datas = useSelector(state => state.commandReducer.datas)
 
-
+const id = datas._id
     useEffect(() => {
         dispatch(getCommand());
     },[dispatch]);
     console.log(datas, "geeeeeeeeeeet commands");
+
+    const modifStatut=()=>{
+        dispatch(updateCommand(id,
+            updateCommand.statut)
+            )
+    }
+
+    // const deleteItem = (id) => {
+    //     dispatch(deleteCommand(id))
+    //     console.log("command delated",id)
+    // }
+
     return (
         <div>
             <Row className="py-4">
@@ -51,12 +65,16 @@ function CommandesAdmin() {
                                 <th>Catégorie</th>
                                 <th>Adresse de dépot</th>
                                 <th>Etat de commande</th>
+                        
                                 </tr>
                             </thead>
                             {datas.map((el,key) => (
                             <tbody key={key}>
                                 <tr>
-                                <td></td>
+                                <td>
+
+
+                                </td>
                                 <td>{el.nomProduit}</td>
                                 <td>{el.quantité}</td>
                                 <td>
@@ -64,15 +82,30 @@ function CommandesAdmin() {
                                 </td>
                 
                                 <td>{el.categorie}</td>
-                                <td></td>
+                                <td>{el.manager.AdrDepot}</td>
+                                <td>{el.statut}</td>
+                                <td>
+                                {/* <div class="form-group floating-label">
+                                                    <select class="form-control" id="statut" name="statut" onChange={(e) => setStatut(e.target.name)}  onClick={modifStatut()} >
+                                                        <option>En attente</option>
+                                                        <option>Valider</option>
+                                                        <option>Réfuser</option>
+                                                    </select>
+                                </div> */}
+
+                                </td>
+                            
+                             
+                                <td className='d-flex justify-content-around'>
+                                    {/* <AiIcons.AiOutlineDelete onClick={()=>{deleteItem(el._id)}} /> */}   
+                                     <UpdateStatut id={el._id}  el={el}/>   
+                                </td>
                                 </tr>
                                 {console.log("ssaaaarrraaa",el)}
                             </tbody>
                             ))}
                             
-                            </Table>
-                        
-                        
+                            </Table>  
                         </Col>
                     </Row>
                </Container>
