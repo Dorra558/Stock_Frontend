@@ -27,6 +27,28 @@ function updateCommands(id) {
     return Api.put(`command/${id}`);
 }
 
+//*****************************API PRODUCTS********************************************************* */
+//add command
+function postnewProducts(manager, categorie, nomProduct, quantité, prix, dateExpirProduct) {
+    return Api.post("product/addProducts", { manager, categorie, nomProduct, quantité, prix, dateExpirProduct });
+}
+
+//get command
+function getAllProducts() {
+    return Api.get("product/getProducts");
+}
+
+
+// delete command
+function deleteProducts(id) {
+    return Api.delete(`product/${id}`);
+}
+
+//edit command
+function updateProducts(id) {
+    return Api.put(`product/${id}`);
+}
+
 
 //
 
@@ -50,10 +72,14 @@ function loginManager(email, password) {
 function getCurrentManager() {
     return Api.get("manager/currentManager");
 }
-// Order User
+// *********************************************Order by id of manager*************************************
 function getOrderManager() {
-
     return Api.get(`manager/currentManagerOrder/${jwt_decode(localStorage.getItem('token'))._id}`)
+}
+////***************************************** */ product manager by id manager***********************************************
+function getProductManager() {
+
+    return Api.get(`manager/currentManagerProduct/${jwt_decode(localStorage.getItem('token'))._id}`)
 }
 
 
@@ -71,5 +97,5 @@ function updateManagers(id) {
 }
 
 
-export { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager, getAllManagers, RegisterManager, deleteManagers, updateManagers, getOrderManager }
-export default { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager, getAllManagers, RegisterManager, deleteManagers, getOrderManager, updateManagers }
+export { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager, getAllManagers, RegisterManager, deleteManagers, updateManagers, getOrderManager, postnewProducts, getAllProducts, deleteProducts, updateProducts, getProductManager }
+export default { postnewCommands, getAllCommands, updateCommands, deleteCommands, loginManager, getCurrentManager, getAllManagers, RegisterManager, deleteManagers, getOrderManager, updateManagers, postnewProducts, getAllProducts, deleteProducts, updateProducts, getProductManager }

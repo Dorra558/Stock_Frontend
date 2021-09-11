@@ -21,7 +21,7 @@ export const SidebarData = [
 
   },
   {
-    title: 'Etat de stock',
+    title: 'Gestion de produits',
     path: '/dashboard/etat de stock',
     icon: <FaIcons.FaCartPlus />,
     className: 'nav-text'

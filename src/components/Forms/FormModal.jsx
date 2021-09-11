@@ -6,7 +6,7 @@ import { BiPlusMedical } from "react-icons/bi";
 import jwt_decode from "jwt-decode";
 
 
-function FormModal({currrentId}) {
+function FormModal() {
 
 
     // const removeDuplicates = (myArr, prop) => {
@@ -46,28 +46,11 @@ function FormModal({currrentId}) {
 
 
     const passCommand = () => {
- 
+        // e.preventDefault();
         const {manager, nomProduit,categorie, quantité} = command;
         console.log("gijfndsuign",command);
 
       dispatch(newCommand(manager, nomProduit,categorie, quantité))
-            //   setSubmitted(true);
-            // .then(data => {
-            //     setMenu({
-                    
-            //         nom: data.title,
-            //         imgUrl: data.imgUrl,
-            //         description: data.description,
-                
-            //     });
-          
-            //     setSubmitted(true);
-
-            //     console.log("hhhhhhhh",data);
-            // })
-            // .catch(e => {
-            //     console.log(e);
-            // });
     };
 
     return (
@@ -95,12 +78,12 @@ function FormModal({currrentId}) {
                                         <Row>
                                             <Col md={3}>
                                                 <Form.Group className="mb-3">  
-                                                <Form.Control type="text" placeholder="Nom produit" id="nomProduit" value={command.nomProduit} onChange={handleInputChange} name="nomProduit"  />
+                                                <Form.Control type="text" placeholder="Nom produit" id="nomProduit"  onChange={handleInputChange} name="nomProduit"  />
                                                 </Form.Group>
                                             </Col>
                                             <Col md={3}>
                                                 <div class="form-group floating-label">
-                                                    <select class="form-control" id="categorie" value={command.categorie} onChange={handleInputChange} name="categorie">
+                                                    <select class="form-control" id="categorie"  onChange={handleInputChange} name="categorie">
                                                         <option>Boisson</option>
                                                         <option>Biscuit</option>
                                                         <option>Jus</option>
@@ -112,7 +95,7 @@ function FormModal({currrentId}) {
                                             </Col>
                                             <Col md={3}>
                                                 <Form.Group className="mb-3">
-                                                <Form.Control type="number" placeholder="Quantité" id="quantité" value={command.quantité} onChange={handleInputChange} name="quantité" />
+                                                <Form.Control type="number" placeholder="Quantité" id="quantité" onChange={handleInputChange} name="quantité" />
                                             </Form.Group>
                                             </Col>
 

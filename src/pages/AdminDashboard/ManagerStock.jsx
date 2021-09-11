@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect,useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getGestionnaire, deleteManager } from '../../Redux/actions/managerAction'
 import {Container, Row, Col, Table} from 'react-bootstrap'
@@ -30,7 +30,10 @@ function ManagerStock() {
         toast.success('Gestionnaire supprimé!')
     }
 
-
+    const [search , setSearch] = useState("")
+      const getSearch =  (event) => {
+          setSearch(event.target.value)
+              }
 
     
     return (
@@ -46,7 +49,7 @@ function ManagerStock() {
            <Row className="py-4">
                 <Col md={{ span: 7, offset: 1 }}>
                     <div class="input-group">
-                        <input type="search" placeholder="Rechercher" id="form1" class="form-control" />
+                        <input type="search"  onChange={getSearch} placeholder="Rechercher" id="form1" class="form-control" />
                     <button type="button" class="btn btn-primary">
                       <AiIcons.AiOutlineSearch/>
                     </button>
@@ -70,7 +73,14 @@ function ManagerStock() {
                             </tr>
                         </thead>
 
-                        {gestion.map((el,key) => (
+                        {gestion.filter((el)=>{
+                            if((search ==="") ||(el.nomCompletManager.toLowerCase().includes(search.toLowerCase())) 
+                             ){ 
+                                 return el
+                            }
+                          
+                        })
+                        .map((el,key) => (
                         <tbody key={key}>
                             <tr>
                                 <td>{el.nomCompletManager}</td>

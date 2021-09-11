@@ -20,7 +20,7 @@ export const SideBarAdmin = [
 
   },
   {
-    title: 'Etat de stock',
+    title: 'Gestion de produits',
     path: '/admin/etat de stock',
     icon: <FaIcons.FaCartPlus />,
     className: 'nav-text'

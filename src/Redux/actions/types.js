@@ -25,5 +25,15 @@ export const GET_COMMAND = "GET_COMMAND"
 export const PUT_COMMAND = "PUT_COMMAND"
 export const DELETE_COMMAND = "DELETE_COMMAND"
     // get command by id
-
 export const GET_ORDER = "GET_ORDER"
+
+
+
+//Products types
+export const ADD_PRODUCT = "ADD_PRODUCT"
+export const GET_PRODUCT = "GET_PRODUCT"
+export const PUT_PRODUCT = "PUT_PRODUCT"
+export const DELETE_PRODUCT = "DELETE_PRODUCT"
+
+//get product by id
+export const GET_PROD = "GET_PROD"

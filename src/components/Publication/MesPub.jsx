@@ -9,7 +9,7 @@ import {updateCommand} from '../../Redux/actions/commandAction'
 import UpdateCmd from '../Forms/UpdateCmd';
 
 
-function CommandesAdmin() {
+function MyPublication() {
 
 
     // const [statuts,setStatuts] = useState('')
@@ -28,7 +28,11 @@ function CommandesAdmin() {
     },[dispatch]);
     console.log(datas, "geeeet commands order of manager");
 
-
+  
+    const [search , setSearch] = useState("")
+      const getSearch =  (event) => {
+          setSearch(event.target.value)
+              }
 
     const deleteItem = (id) => {
         dispatch(deleteCommand(id))
@@ -38,14 +42,28 @@ function CommandesAdmin() {
     return (
         <div>
             <Row className="py-4">
-                <Col md={{ span: 7, offset: 1 }}>
+                <Col md={{span: 4, offset : 1}}>
                     <div class="input-group">
-                        <input type="search" placeholder="Rechercher" id="form1" class="form-control" />
+                        <input type="search" onChange={getSearch} placeholder="Rechercher un produit" id="form1" class="form-control" />
                     <button type="button" class="btn btn-primary">
                       <AiIcons.AiOutlineSearch/>
                     </button>
                     </div>
                 </Col>
+                
+              <Col md={4}>
+                    <div class="form-group floating-label">
+                                <select class="form-control"  onChange={getSearch} name="categorie">
+                                    <option>Boisson</option>
+                                    <option>Biscuit</option>
+                                    <option>Jus</option>
+                                    <option>Eau</option>
+                                    <option>Cake</option>
+                                    <option>Lait</option>
+                                </select>
+                    </div>
+              </Col>
+
 
             </Row>
 
@@ -60,7 +78,7 @@ function CommandesAdmin() {
                             <Table striped bordered hover >
                             <thead>
                                 <tr>
-                                <th>ID_P</th>
+                                
                                 <th>Nom Produit</th>
                                 <th>Quantité</th>
                                 <th>Date de commande</th>
@@ -70,15 +88,20 @@ function CommandesAdmin() {
                         
                                 </tr>
                             </thead>
-                            {/* .filter(el => el.manager._id === currrentId) */}
-                            {datas.map((el,key) => (
+                       
+                            {datas
+                            .filter((el)=>{
+                                if((search ==="") ||(el.categorie.toLowerCase().includes(search.toLowerCase())) ||(el.nomProduit.toLowerCase().includes(search.toLowerCase())) 
+                                 ){ 
+                                     return el
+                                }
+                              
+                            }).map((el,key) => (
+
                             <tbody key={key}>
                                 <tr>
-                                <td>
-
-
-                                </td>
-                            <td>{el.nomProduit}</td>
+                           
+                               <td>{el.nomProduit}</td>
                                 <td>{el.quantité}</td>
                                 <td>
                                     <Moment format="YYYY/MM/DD HH:mm">{el.dateCommand}</Moment>
@@ -118,7 +141,7 @@ function CommandesAdmin() {
     )
 }
 
-export default CommandesAdmin
+export default MyPublication
 
 
 

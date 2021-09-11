@@ -1,10 +1,14 @@
 import { GET_COMMAND, ADD_COMMAND, PUT_COMMAND, DELETE_COMMAND, GET_ORDER } from "../actions/types"
+
 const initialState = {
     datas: [],
     loading: true
 }
 
 export const commandReducer = (state = initialState, action) => {
+
+
+
     const { type, payload } = action
     switch (type) {
         //get command

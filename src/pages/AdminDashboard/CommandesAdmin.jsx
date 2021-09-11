@@ -27,6 +27,11 @@ const id = datas._id
             updateCommand.statut)
             )
     }
+    const [search , setSearch] = useState("")
+    const getSearch =  (event) => {
+        setSearch(event.target.value)
+            }
+
 
     // const deleteItem = (id) => {
     //     dispatch(deleteCommand(id))
@@ -38,7 +43,7 @@ const id = datas._id
             <Row className="py-4">
                 <Col md={{ span: 7, offset: 1 }}>
                     <div class="input-group">
-                        <input type="search" placeholder="Rechercher" id="form1" class="form-control" />
+                        <input type="search" onChange={getSearch} placeholder="Rechercher" id="form1" class="form-control" />
                     <button type="button" class="btn btn-primary">
                       <AiIcons.AiOutlineSearch/>
                     </button>
@@ -64,11 +69,19 @@ const id = datas._id
                                 <th>Date de commande</th>
                                 <th>Catégorie</th>
                                 <th>Adresse de dépot</th>
+                                <th>Nom de géstionnaire</th>
                                 <th>Etat de commande</th>
-                        
                                 </tr>
                             </thead>
-                            {datas.map((el,key) => (
+
+                            {datas
+                            .filter((el)=>{
+                                if((search ==="") ||(el.categorie.toLowerCase().includes(search.toLowerCase())) ||(el.nomProduit.toLowerCase().includes(search.toLowerCase())) 
+                                 ){ 
+                                     return el
+                                }
+                              
+                            }).map((el,key) => (
                             <tbody key={key}>
                                 <tr>
                                 <td>
@@ -83,6 +96,7 @@ const id = datas._id
                 
                                 <td>{el.categorie}</td>
                                 <td>{el.manager.AdrDepot}</td>
+                                <td>{el.manager.nomCompletManager}</td>
                                 <td>{el.statut}</td>
                                 <td>
                                 {/* <div class="form-group floating-label">

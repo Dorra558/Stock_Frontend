@@ -1,6 +1,8 @@
 import { postnewCommands, getAllCommands, updateCommands, deleteCommands, getOrderManager } from "../services/api";
 import { GET_COMMAND, ADD_COMMAND, PUT_COMMAND, DELETE_COMMAND, GET_ORDER } from "./types"
 import axios from 'axios'
+import jwt_decode from "jwt-decode";
+
 
 
 // get command by id
@@ -39,6 +41,7 @@ export const getCommand = () => async(dispatch) => {
 
 }
 
+// get command by id of manager
 export const getOrderId = () => async(dispatch) => {
 
         try {
@@ -71,9 +74,13 @@ export const newCommand = (manager, nomProduit, categorie, quantité, statut) =>
 //delete Command
 
 export const deleteCommand = (id) => async(dispatch) => {
-    console.log("salut tous le monde", id)
+
+    const x = localStorage.getItem("token")
+        // var ID = jwt_decode(x)._id
+        // console.log("salut tous le monde", id)
+
     try {
-        const res = await deleteCommands(id);
+        const res = await axios.delete(`http://localhost:4000/app/command/${id}`)
 
         dispatch({
             type: DELETE_COMMAND,
