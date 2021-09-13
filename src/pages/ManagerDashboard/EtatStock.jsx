@@ -20,6 +20,10 @@ export default function EtatStock() {
     console.log(produitss, "geeeet products of each manager");
 
 
+    const [search , setSearch] = useState("")
+    const getSearch =  (event) => {
+        setSearch(event.target.value)
+            }
 
 
     return (
@@ -29,16 +33,28 @@ export default function EtatStock() {
                    <h5 className="pt-5">Gestion de produit</h5>
                     <Container>
                         <Row className="py-4">
-                            <Col md={{ span: 6}}>
+                            <Col md={{ span: 4}}>
                                 <div class="input-group">
-                                    <input type="search" placeholder="Rechercher" id="form1" class="form-control" />
+                                    <input type="search" placeholder="Rechercher" onChange={getSearch} id="form1" class="form-control" />
                                 <button type="button" class="btn btn-primary">
                                 <AiIcons.AiOutlineSearch/>
                                 </button>
                                 </div>
                             </Col>
+                            <Col md={4}>
+                                <div class="form-group floating-label">
+                                    <select class="form-control"  onChange={getSearch} name="categorie">
+                                        <option>Boisson</option>
+                                        <option>Biscuit</option>
+                                        <option>Jus</option>
+                                        <option>Eau</option>
+                                        <option>Cake</option>
+                                        <option>Lait</option>
+                                    </select>
+                                </div>
+                            </Col>
 
-                            <Col  md={{ span: 3, offset: 3 }}>
+                            <Col  md={{ span: 3, offset: 1 }}>
                             <AddProduit/>
                             </Col>
                         </Row>
@@ -61,7 +77,14 @@ export default function EtatStock() {
                                         </tr>
                                     </thead>
                             
-                                    {produitss.map((el,key) => (
+                                    {produitss.filter((el)=>{
+                                                            if((search ==="") ||(el.categorie.toLowerCase().includes(search.toLowerCase())) ||(el.nomProduct.toLowerCase().includes(search.toLowerCase())) 
+                                                    ){ 
+                                                        return el
+                                                }
+                                                
+                                            }).
+                                    map((el,key) => (
 
                                     <tbody key={key}>
                                         <tr>

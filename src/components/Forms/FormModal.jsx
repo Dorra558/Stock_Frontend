@@ -56,7 +56,7 @@ function FormModal() {
     return (
         <div>
      
-            <Button variant="success" onClick={handleShow}>   
+            <Button variant="" className="btn-add" onClick={handleShow}>   
                <BiPlusMedical/> Passer une commande 
             </Button>
             <Modal show={show} onHide={handleClose} size="lg">
@@ -71,12 +71,8 @@ function FormModal() {
                             
                                     <Form className="formulaire">
 
-                                        <Col>
-                                        <Form.Label><h4>Informations de Produit</h4> </Form.Label>
-                                        </Col>
-
                                         <Row>
-                                            <Col md={3}>
+                                            <Col md={{span:3, offset: 1}}>
                                                 <Form.Group className="mb-3">  
                                                 <Form.Control type="text" placeholder="Nom produit" id="nomProduit"  onChange={handleInputChange} name="nomProduit"  />
                                                 </Form.Group>
@@ -115,7 +111,7 @@ function FormModal() {
                                     </Form> 
                         <Modal.Footer>
 
-                        <Button  onClick={()=>{passCommand();handleClose()}} className="btn btn-primary" >
+                        <Button  onClick={()=>{passCommand();handleClose()}} className="btn-add" >
                             Approuver
                         </Button>
                         </Modal.Footer>

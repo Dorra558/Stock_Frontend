@@ -17,7 +17,7 @@ function AddProduit() {
 
 
     const initialProductState = {
-        manager: id,
+        manager : id,
         categorie: "",
         nomProduct: "",
         quantité: "",
@@ -39,7 +39,7 @@ function AddProduit() {
     };
 
 
-    const passCommand = () => {
+    const passProduct = () => {
 
         const { manager, categorie, nomProduct, quantité, prix, dateExpirProduct } = product;
 
@@ -62,9 +62,9 @@ function AddProduit() {
 
                         <Form>
                             <Row>
-                                <Col md={4}>
-                                    <div class="form-group floating-label" placeholder="Séléctionner une catégorie" id="nomProduit" value={product.categorie} onChange={handleInputChange} name="categorie">
-                                        <select class="form-control" id="categorie">
+                            <Col md={4}>
+                                    <div class="form-group floating-label" >
+                                        <select class="form-control" id="categorie" onChange={handleInputChange} name="categorie">
                                             <option>Boisson</option>
                                             <option>Biscuit</option>
                                             <option>Jus</option>
@@ -108,10 +108,10 @@ function AddProduit() {
 
                     </Modal.Body>
                     <Modal.Footer>
-
-                        <Button variant="primary" onClick={()=>{handleClose();passCommand()}}>
+                    <Button   onClick={()=>{passProduct();handleClose()}}>
                             Ajouter un produit
-                        </Button>
+                           </Button>
+
                     </Modal.Footer>
                 </Modal>
 

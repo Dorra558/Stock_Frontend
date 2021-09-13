@@ -1,39 +1,36 @@
 .App {
-    background-color: #f3f2f2;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='558' preserveAspectRatio='none' viewBox='0 0 1440 558'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1036%26quot%3b)' fill='none'%3e%3crect width='1440' height='558' x='0' y='0' fill='rgba(190%2c 222%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c343.828C62.551%2c333.419%2c109.501%2c287.638%2c163.706%2c254.732C219.588%2c220.808%2c293.146%2c205.654%2c323.225%2c147.612C353.53%2c89.135%2c340.699%2c16.425%2c319.524%2c-45.941C300.416%2c-102.22%2c252.375%2c-140.163%2c211.023%2c-182.853C172.054%2c-223.083%2c135.375%2c-264.58%2c84.678%2c-288.388C27.769%2c-315.113%2c-36.762%2c-348.028%2c-96.03%2c-327.048C-155.171%2c-306.113%2c-176.131%2c-235.124%2c-211.728%2c-183.464C-243.159%2c-137.849%2c-280.972%2c-96.244%2c-292.413%2c-42.043C-304.311%2c14.319%2c-291.156%2c70.701%2c-277.177%2c126.583C-260.399%2c193.654%2c-257.329%2c273.089%2c-202.913%2c315.739C-148.06%2c358.732%2c-68.749%2c355.268%2c0%2c343.828' fill='%2365b1ff'%3e%3c/path%3e%3cpath d='M1440 1208.3319999999999C1559.008 1183.45 1603.833 1037.2559999999999 1701.237 964.4929999999999 1788.877 899.024 1916.703 893.762 1980.2759999999998 804.736 2048.142 709.698 2071.061 585.25 2054.615 469.632 2038.1570000000002 353.933 1963.5259999999998 258.923 1889.745 168.29399999999998 1813.915 75.14800000000002 1739.8519999999999-38.68100000000004 1621.9859999999999-61.78800000000001 1505.282-84.66700000000003 1403.575 12.268000000000029 1291.113 50.93799999999999 1185.029 87.41500000000002 1050.9270000000001 72.47800000000001 979.631 159.08800000000002 908.419 245.596 951.0550000000001 374.51 933.639 485.196 915.916 597.833 846.547 705.35 876.361 815.406 907.782 931.394 999.0840000000001 1021.9639999999999 1097.663 1090.6860000000001 1198.693 1161.117 1319.45 1233.536 1440 1208.3319999999999' fill='white'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1036'%3e%3crect width='1440' height='558' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
 }
 
-
-/* .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
+.form-admin {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: rgb(183, 187, 219);
+    border-radius: 20px;
+    width: 40rem;
+    height: 20rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+}
+
+.btn-add {
+    background-color: #65b1ff;
     color: white;
+    font-size: 17px;
+    border-radius: 0px;
 }
 
-.App-link {
-    color: #61dafb;
+.btn-add:hover {
+    background-color: white;
+    color: #65b1ff;
+    border-color: #65b1ff;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-} */
+.modal-content {
+    border: 3px solid rgb(101 177 255);
+    border-radius: 0px;
+}

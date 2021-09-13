@@ -63,7 +63,6 @@ const id = datas._id
                             <Table striped bordered hover >
                             <thead>
                                 <tr>
-                                <th>ID_P</th>
                                 <th>Nom Produit</th>
                                 <th>Quantité</th>
                                 <th>Date de commande</th>
@@ -71,6 +70,7 @@ const id = datas._id
                                 <th>Adresse de dépot</th>
                                 <th>Nom de géstionnaire</th>
                                 <th>Etat de commande</th>
+                             
                                 </tr>
                             </thead>
 
@@ -84,10 +84,7 @@ const id = datas._id
                             }).map((el,key) => (
                             <tbody key={key}>
                                 <tr>
-                                <td>
 
-
-                                </td>
                                 <td>{el.nomProduit}</td>
                                 <td>{el.quantité}</td>
                                 <td>

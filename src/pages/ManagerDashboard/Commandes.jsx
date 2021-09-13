@@ -15,8 +15,10 @@ function Commandes() {
    
     return (
         <>
-            <Container className="py-5">
+            <Container className="py-5 mt-4 bg-light">
+                <div className="d-flex justify-content-end">
                 <FormModal/>
+                </div>
               <MyPublication/>
         </Container>
         </>

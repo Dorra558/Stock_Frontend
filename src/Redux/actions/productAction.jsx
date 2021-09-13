@@ -47,5 +47,4 @@ export const newProduct = (manager, categorie, nomProduct,  quantité, prix, dat
     } catch (error) {
         console.log(error);
     }
-}
-
+}   

@@ -65,7 +65,7 @@ export const newCommand = (manager, nomProduit, categorie, quantité, statut) =>
             type: ADD_COMMAND,
             payload: res.data
         })
-        console.log("Add commanddddd")
+        console.log("Add commandddd")
     } catch (error) {
         console.log(error);
     }
@@ -76,18 +76,18 @@ export const newCommand = (manager, nomProduit, categorie, quantité, statut) =>
 export const deleteCommand = (id) => async(dispatch) => {
 
     const x = localStorage.getItem("token")
-        // var ID = jwt_decode(x)._id
-        // console.log("salut tous le monde", id)
+    var ID = jwt_decode(x)._id
+    console.log("salut tous le monde", ID)
 
     try {
-        const res = await axios.delete(`http://localhost:4000/app/command/${id}`)
+        const res = await axios.delete(`http://localhost:4000/app/command/${ID}`)
 
         dispatch({
             type: DELETE_COMMAND,
-            payload: id
+            payload: ID
         })
         console.log("payload")
-        dispatch(getCommand);
+        dispatch(getOrderId);
     } catch (error) {
         console.log(error);
     }

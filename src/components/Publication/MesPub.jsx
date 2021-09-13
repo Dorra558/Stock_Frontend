@@ -3,9 +3,10 @@ import { Container, Row, Col, Table, Button} from 'react-bootstrap'
 import * as AiIcons from 'react-icons/ai';
 import Moment from 'react-moment'
 import { useDispatch, useSelector } from 'react-redux'
-import { getOrderId, deleteCommand } from '../../Redux/actions/commandAction'
+import { getOrderId, deleteCommand, getCommand } from '../../Redux/actions/commandAction'
 
 import {updateCommand} from '../../Redux/actions/commandAction'
+import { getAllCommands } from '../../Redux/services/api';
 import UpdateCmd from '../Forms/UpdateCmd';
 
 
@@ -41,6 +42,7 @@ function MyPublication() {
 
     return (
         <div>
+           <Container> 
             <Row className="py-4">
                 <Col md={{span: 4, offset : 1}}>
                     <div class="input-group">
@@ -69,7 +71,7 @@ function MyPublication() {
 
 
 
-               <Container>
+              
                     <Row>
                         
                         <Col>
@@ -77,15 +79,12 @@ function MyPublication() {
                         
                             <Table striped bordered hover >
                             <thead>
-                                <tr>
-                                
+                                <tr>                               
                                 <th>Nom Produit</th>
                                 <th>Quantité</th>
                                 <th>Date de commande</th>
-                                <th>Catégorie</th>
-                             
-                                <th>Etat de commande</th>
-                        
+                                <th>Catégorie</th>  
+                                <th>Etat de commande</th>                        
                                 </tr>
                             </thead>
                        
@@ -96,9 +95,13 @@ function MyPublication() {
                                      return el
                                 }
                               
-                            }).map((el,key) => (
+                            })
+                            .map((el,key) => (
 
                             <tbody key={key}>
+
+                                {/* <h1>{el.manager.commands[2].categorie}</h1>
+                                {console.log(`les commandes de chaque gestionnaire`, el.manager.commands.quantité)} */}
                                 <tr>
                            
                                <td>{el.nomProduit}</td>
@@ -111,13 +114,7 @@ function MyPublication() {
                            
                                 <td>{el.statut}</td>
                                 <td>
-                                {/* <div class="form-group floating-label">
-                                                    <select class="form-control" id="statut" name="statut" onChange={(e) => setStatut(e.target.name)}  onClick={modifStatut()} >
-                                                        <option>En attente</option>
-                                                        <option>Valider</option>
-                                                        <option>Réfuser</option>
-                                                    </select>
-                                </div> */}
+
 
                                 </td>
                             
@@ -127,7 +124,7 @@ function MyPublication() {
                                      <UpdateCmd id={el._id}  el={el}/> 
                                 </td> 
                                 </tr>
-                                {console.log("ssaaaarrraaa",el)}
+                                {console.log("tableau des commandes",el)}
                             </tbody>
                             ))}
                             
