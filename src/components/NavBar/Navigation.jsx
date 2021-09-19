@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as FiIcons from 'react-icons/fi'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { SidebarData } from '../SideBar/SideBar';
 import { useLocation } from "react-router-dom";
 import './Navigation.css';
 // import { useDispatch, useSelector} from 'react-redux'
 import { IconContext } from 'react-icons';
+import { BiUserCircle } from "react-icons/bi";
+import {SiGooglemaps} from 'react-icons/si'
 // import {logoutUser} from '../../Redux/actions/authAction'
 
 function Navigation() {
@@ -29,6 +32,12 @@ function Navigation() {
     
   };
   
+
+  
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.authReducer.user)
+console.log(`user`, user)
+
   // const [activeLink, setactiveLink] = useState(0);
   // const handleClick = () => {
   //   const currentClass = document.getElementsByClassName("nav-text");
@@ -47,10 +56,13 @@ function Navigation() {
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <Link to='/login' className='menu-bars'>
-            <FiIcons.FiLogIn  /> 
-            {/* onClick={logout()}  */}
-          </Link>
+       
+            <div className="d-flex ">
+            <h4><BiUserCircle/> {user.nomCompletManager}</h4>
+              <h4 className="ml-3" ><SiGooglemaps/> {user.AdrDepot}</h4>
+            </div>
+          
+         
         </div>
 
 
@@ -62,8 +74,8 @@ function Navigation() {
               </Link>
             </li>
             <div className="text-center pt-4">
-            <img src="imgs/logo.jpg" className="imgStock" alt="" />
-                        <p className="text-white">Elementry Stock</p> 
+            <img src="imgs/logoStock.jpg" className="imgStock" alt="" />
+                        {/* <p className="text-white">Elementry Stock</p>  */}
             </div>
             {SidebarData.map((item, index) => {
               return (

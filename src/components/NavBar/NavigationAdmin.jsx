@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as FiIcons from 'react-icons/fi'
@@ -8,11 +9,15 @@ import { useLocation } from "react-router-dom";
 import './Navigation.css';
 import { IconContext } from 'react-icons';
 import {Container} from 'react-bootstrap'
+import { BiUserCircle } from "react-icons/bi";
 
 function NavigationAdmin() {
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => sidebar ? setSidebar (false)  : setSidebar(true);
 
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.authReducer.user)
+console.log(`user`, user)
 
   const location = useLocation();
   const activeRoute = (routeName) => {
@@ -38,9 +43,7 @@ function NavigationAdmin() {
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <Link to='#' className='menu-bars'>
-            <FiIcons.FiLogIn  />
-          </Link>
+          {/* <h4><BiUserCircle/> {user.nomCompletManager}</h4> */}
         </div>
 
 
@@ -52,8 +55,8 @@ function NavigationAdmin() {
               </Link>
             </li>
             <div className="text-center pt-4">
-            <img src="imgs/logo.jpg" className="imgStock" alt="" />
-                        <p className="text-white">Elementry Stock</p> 
+            <img src="imgs/logoStock.jpg" className="imgStock" alt="" />
+                       
             </div>
             {SideBarAdmin.map((item, index) => {
               return (

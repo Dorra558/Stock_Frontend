@@ -29,7 +29,7 @@ export default function EtatStock() {
     return (
         <div>
 
-               <Container>
+               <Container className="py-5 mt-4 bg-light">
                    <h5 className="pt-5">Gestion de produit</h5>
                     <Container>
                         <Row className="py-4">

@@ -49,7 +49,7 @@ function AddProduit() {
     return (
         <div>
             <Container>
-                <Button variant="success" onClick={handleShow}>
+                <Button variant="success" onClick={handleShow} className="btn-add">
                     <BiPlusMedical /> Ajouter un produit
                 </Button>
 
@@ -108,7 +108,7 @@ function AddProduit() {
 
                     </Modal.Body>
                     <Modal.Footer>
-                    <Button   onClick={()=>{passProduct();handleClose()}}>
+                    <Button    className="btn-add" onClick={()=>{passProduct();handleClose()}}>
                             Ajouter un produit
                            </Button>
 
